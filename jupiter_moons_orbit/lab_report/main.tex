@@ -1,0 +1,142 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[margin=2.5cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+
+\usepackage{anyfontsize}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{parskip}
+
+\usepackage[table]{xcolor}
+\usepackage{makecell}
+
+\usepackage{listings}
+
+\usepackage{pdfpages}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+% causes warning because hyperref doesn't like hebrew
+
+\usepackage{polyglossia}
+\setmainlanguage{hebrew}
+\setotherlanguage{english}
+\setmonofont{FreeSerif}
+\newfontfamily{\englishfont}{David Libre}
+\newfontfamily{\englishfontcode}{JetBrainsMono-Regular}
+\newfontfamily{\hebrewfont}{David Libre}
+
+% \begin{english}
+% this is where english text can be inserted
+% \end{english}
+
+% can also use \textenglish{english text goes here}
+
+% Font - David
+% Normal Size - 12pt
+% Spacing - 1.15
+% Section Size - 16pt
+% Subsection Size - 14pt
+
+\titleformat*{\section}{\fontsize{16}{19.2}\selectfont\bfseries}
+\titleformat*{\subsection}{\fontsize{14}{16.8}\selectfont\bfseries}
+\titleformat*{\subsubsection}{\fontsize{12}{14.4}\selectfont\bfseries}
+
+\setlength{\parindent}{0pt} % removes default paragraph indentation
+\setcounter{secnumdepth}{0} % doesn't number sections
+\setcounter{tocdepth}{2} % depth of ToC (will only show parts, chapters, sections, subsections)
+
+% ----- Report ----- %
+
+\begin{document}
+
+    {\makeatletter
+        \def\@@underline#1{#1}
+        \tableofcontents
+    \makeatother} % doesn't underline sections in the ToC
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{מטרת הניסוי}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+
+        \end{flushright}
+    \end{spacing}
+
+
+    \begin{figure}[h!]
+        
+    \end{figure}
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{רקע תיאורטי}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+            משוואת כוחות עבור ירח שמסתו $m$ שנע במסלול מעגלי סביב גוף מסיבי שמסתו $M_J$ (במקרה זה הוא צדק):
+        \end{flushright}
+    \end{spacing}
+
+    $$ \frac{GmM_J}{R^2} = m\frac{4\pi^2}{T^2}R $$
+
+    $$ \frac{GM_J}{4\pi^2} = \frac{R^3}{T^2} $$
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{מערכת הניסוי}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+
+        \end{flushright}
+    \end{spacing}
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{מהלך הניסוי}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+
+        \end{flushright}
+    \end{spacing}
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{תוצאות הניסוי}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+
+        \end{flushright}
+    \end{spacing}
+
+    % --- End of Page --- %
+    \pagebreak 
+    % --- Start of Page --- %
+
+    \section{\underline{עיבוד וניתוח ותוצאות}}
+    \begin{spacing}{1.15}
+        \begin{flushright}
+
+        \end{flushright}
+    \end{spacing}
+
+\end{document}
