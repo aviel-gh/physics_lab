@@ -16,6 +16,7 @@
 \usepackage{listings}
 
 \usepackage{amsmath}
+\usepackage{witharrows}
 
 \usepackage{pdfpages}
 
@@ -54,60 +55,116 @@
 \titleformat*{\subsubsection}{\fontsize{12}{14.4}\selectfont\bfseries}
 
 \setlength{\parindent}{0pt} % removes default paragraph indentation
+\setstretch{1.15} % spacing
 \setcounter{secnumdepth}{0} % doesn't number sections
 \setcounter{tocdepth}{2} % depth of ToC (will only show parts, chapters, sections, subsections)
+
+
+\title{דוח מעבדה \\ תנועת הירחים של צדק}
+\author{אביאל וויסמן \\ \small{דרכא בית ירח}}
+\date{2023 \\ ינואר}
 
 % ----- Report ----- %
 
 \begin{document}
+    
+    \maketitle
+
+    \vfill
 
     {\makeatletter
         \def\@@underline#1{#1}
         \tableofcontents
     \makeatother} % doesn't underline sections in the ToC
 
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+    \vfill
+
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{מטרת הניסוי}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
 
-        \end{flushright}
-    \end{spacing}
+    \end{flushright}
 
-
-    \begin{figure}[h!]
-        
-    \end{figure}
-
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{רקע תיאורטי}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
-            משוואת כוחות עבור ירח שמסתו $m$ שנע במסלול מעגלי סביב גוף מסיבי שמסתו $M$ (במקרה זה הוא צדק):
-        \end{flushright}
-    \end{spacing}
+
+    \begin{flushright}
+        לצורך ניסוי זה אנו מניחים שזמן ורדיוס ההקפה של ירח סביב 
+        צדק נשאר קבוע.
+        בנוסף אנחנו גם מניחים שירח מקיף את צדק במסלול מעגלי (למרות שבמציאות זה אליפטי).
+    \end{flushright}
+
+    \begin{figure}[h!]
+        \centering
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{../assets/orbit_from_above_01.png}
+            \caption{מבט מלמעלה}
+        \end{minipage}\hfill
+        \begin{minipage}{0.55\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../assets/orbit_from_earth_01.png}
+            \caption{מבט מכדור הארץ}
+        \end{minipage}
+    \end{figure}
+
+    \begin{flushright}
+        ניתן לראות ש \textcolor{green}{x} הוא המרחק הנראה של ירח מצדק,
+        מנקודת מבטנו מכדור הארץ, ו \textcolor{red}{R} הוא רדיוס ההקפה של ירח סביב צדק.
+
+        מנקודת מבט מכדור הארץ הירח נע על ציר אחד (ציר אופקי), כלומר
+        כפי שנראה מכדור הארץ, הירח ינוע ימינה ושמאלה.
+        דבר זה מתרחש מכיוון שאנחנו (כדור הארץ) וצדק נמצאים על אותו מישור בהקפה שלנו סביב השמש.
+        
+        בעזרת טריגונומטריה אפשר לחשב את \textcolor{green}{x} המרחק הנראה של הירח מצדק,
+        יוצא ש
+        $ x = Rsin{\alpha} $.
+        בעקבות זאת אנחנו נצפה לראות פונקציה סינוסואידלית עבור המרחק של הירח מצדק 
+        מנקודת מבטנו.
+    \end{flushright}
+
+    \pagebreak % ----- Page Break ----- %
+
+    \begin{flushright}
+        אנחנו נבנה
+        משוואת כוחות עבור ירח שמסתו $m$ שנע במסלול מעגלי סביב גוף מסיבי שמסתו $M$ (במקרה זה הוא צדק):
+        
+        נעזר בחוק השני של ניוטון.
+
+        $$ \Sigma \vec{F} = m\vec{a} $$ 
+
+        במקרה זה פועל רק כוח הכבידה, ומיכוון שהירח מקיף את הגוף המסיבי בצורה מעגלית
+        קיים תאוצה רדיאלית (צנטריפטלית). 
+
+        $$ F_G = ma_r $$
+
+        אנחנו נחליף את $F_G$ ו $a_r$ במשוואות שלהם, ונציב בהם את המשתנים שלנו.
+
+        $$ G\dfrac{mM}{R^2} = m \omega^2 R$$
+
+        אנחנו נחליף את התדירות הזוויתית $\omega$ במשוואה שלה ונפשט.
+        
+        $$ \dfrac{GmM}{R^2} = m \biggl(\dfrac{2\pi}{T}\biggl)^2 R $$
+        
+        $$ \dfrac{GM}{R^2} = \dfrac{4\pi^2}{T^2} R $$
+    \end{flushright}
 
     \begin{english}
-        $$ \dfrac{GmM}{R^2} = m\dfrac{4\pi^2}{T^2}R $$
-
         \begin{equation}
             \label{firsteq}
             \dfrac{GM}{4\pi^2} = \dfrac{R^3}{T^2}
         \end{equation}
     \end{english}
 
-    \begin{spacing}{1.15}
-        \begin{flushright}
-            משוואת כוחות עבור כדור הארץ שמקיף את השמש שמסתה $M_S$ במסלול שרידוסו
-            $R_E$ בזמן הקפה $T_E$:
-        \end{flushright}
-    \end{spacing}
+    \begin{flushright}
+        אנחנו נבנה
+        משוואת כוחות עבור כדור הארץ שמקיף את השמש שמסתה $M_S$ במסלול שרידוסו
+        $R_E$ בזמן הקפה $T_E$:
+
+        אנחנו נציב משתנים אלו במשוואה \ref{firsteq} למעלה, ונקבל:
+    \end{flushright}
 
     \begin{english}
         \begin{equation}
@@ -116,89 +173,133 @@
         \end{equation}
     \end{english}
 
-    \begin{spacing}{1.15}
-        \begin{flushright}
-            נחלק משוואה \ref{firsteq} ב- \ref{secondeq}:
-        \end{flushright}
-    \end{spacing}
+    \pagebreak % ----- Page Break ----- %
+
+    \begin{flushright}
+        נחלק משוואה \ref{firsteq} ב- \ref{secondeq}:
+    \end{flushright}
+
+    \begin{align*}
+        \dfrac{\dfrac{GM}{4\pi^2}}{\dfrac{GM_S}{4\pi^2}} 
+        = \dfrac{\dfrac{R^3}{T^2}}{\dfrac{R_E^3}{T_E^2}} 
+        \quad\Rightarrow\quad
+        \dfrac{M}{M_S} &= \dfrac{R^3}{T^2} \times \dfrac{T_E^2}{R_E^3} &\text{נחלק שבר בשבר והחלפה בין המכנים} \\[0.5em]
+        \dfrac{M}{M_S} &= \dfrac{R^3}{R_E^3} \times \dfrac{T_E^2}{T^2} &\text{נעביר מכפל לחילוק בין השברים} \\[0.5em]
+        \dfrac{M}{M_S} &= \dfrac{\dfrac{R^3}{R_E^3}}{\dfrac{T^2}{T_E^2}} &\text{נשתמש בחוקי חוקי חזקות}
+    \end{align*}
     
     \begin{english}
-        \begin{flalign*}
-            \dfrac{\dfrac{GM}{4\pi^2}}{\dfrac{GM_S}{4\pi^2}} 
-            = \dfrac{\dfrac{R^3}{T^2}}{\dfrac{R_E^3}{T_E^2}} 
-            \quad\Rightarrow\quad
-            \dfrac{M}{M_S} &= \dfrac{R^3}{T^2} \times \dfrac{T_E^2}{R_E^3} \\[0.5em]
-            \dfrac{M}{M_S} &= \dfrac{R^3}{R_E^3} \times \dfrac{T_E^2}{T^2} \\[0.5em]
-            \dfrac{M}{M_S} &= \dfrac{\dfrac{R^3}{R_E^3}}{\dfrac{T^2}{T_E^2}} &&
-        \end{flalign*}
-
         \begin{equation}
             \label{thirdeq}
             \dfrac{M}{M_S} = \dfrac{\biggl(\dfrac{R}{R_E}\biggl)^3}{\biggl(\dfrac{T}{T_E}\biggl)^2} 
         \end{equation}
     \end{english}
+        
+    \begin{flushright}
+        קיבלנו משוואה המתארת את הקשר בין מסת גוף מסיבי (ביחידות מסת שמש)
+        לבין היחס של רדיוס מסלולו (ביחידות אסטרונומיות \textenglish{AU}\footnotemark{}( לזמן המחזור של הקפתו (בשנים).
 
-    \begin{spacing}{1.15}
-        \begin{flushright}
-            קיבלנו משוואה שמתארת את הקשר בין מסת גוף מסיבי (ביחידות מסת שמש)
-            לבין היחס של רדיוס מסלולו (ביחידות אסטרונומיות \textenglish{AU}( לזמן המחזור של הקפתו (בשנים).
-        \end{flushright}
-    \end{spacing}
+        בניסוי זה אנחנו נחשב את מסת צדק ביחידות מסת שמש. נעשה זאת באמצעות
+        הוצאת מידע מהניסוי על רדיוס וזמן מחזור של ירח סביב צדק.
 
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+        בהדמיה משתמשים ביחידות שונות לאלו שאנחנו משתמשים בהם במשוואה \ref{thirdeq}, לכן נמיר יחידות אלו.
+        בהדמיה משתמשים ביחידות של קטרי צדק (פעמיים רדיוס צדק) עבור רדיוס ההקפה
+        ויחידות ימים עבור זמן המחזור של ההקפה, 
+        נמיר אותם ליחידות
+        \textenglish{AU} ושנים בהתאמה:
+        $$ \dfrac{AU}{\text{\texthebrew{קוטר צדק}}} = \dfrac{149.6\times10^9}{2\times71.4\times10^6} = 1047 m $$
+        $$ \dfrac{\text{שנים}}{\text{ימים}} = 365 $$
+
+        מחישובים אלו נובע שצריך לחלק את תוצאות הרדיוס מהניסוי ב-1047 כדי שיהיו ביחידות \textenglish{AU},
+        ושצריך לחלק את תוצאות הזמן מחזור מהניסוי ב-365 כדי שיהיו ביחידות שנים.
+    \end{flushright}
+    
+    \vfill
+
+    \footnotetext{מרחק ממוצע מכדור הארץ לשמש, כלומר רדיוס ההקפה של כדור הארץ סביב השמש.}
+
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{מערכת הניסוי}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
+        במעבדה זו נשתמש במחשב להדמית תצפית על ארבעת הירחים של צדק,
+        אנחנו נצפה בארבעת הירחים הגליליאניים - איו, אירופה, גנימד, קליסטו.
 
-        \end{flushright}
-    \end{spacing}
-
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+        על מנת שיהיה קל יותר לזהות את הירחים ניתן לתת לכל ירח צבע אחר, נעשה זאת כך:\\
+        \textenglish{File $\rightarrow$ Preferences $\rightarrow$ ID Colors}.
+    \end{flushright}
 
     \section{\underline{מהלך הניסוי}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
+        במהלך הניסוי נבצע את אותם השלבים על כל ירח:
 
-        \end{flushright}
-    \end{spacing}
+        \begin{enumerate}
+            \item[.1] נקבע את מרווחי הזמן בין כל תצפית בצורה הבאה:
+            \begin{itemize}
+                \item איו - 2 שעות
+                \item אירופה - 4 שעות
+                \item גנימד - 6 שעות
+                \item קליסטו - 8 שעות
+            \end{itemize}
+            נעשה זאת כך: \textenglish{File $\rightarrow$ Preferences $\rightarrow$ Timing}, לשנות את הערך של 
+            \textenglish{Observation Interval}.
+            
+            \item[.2] נמדוד את המיקום של כל ירח
+            נעשה זאת על ידי לחיצה שמאלית על הירח באצעות העכבר, בפינה הימנית התחתונה של המסך
+            יופיע מידע על הירח שלחצנו על, מידע זה כולל: שם הירח, מיקום על המסך, המרחק מצדק
+            ובאיזה צד \textenglish{(W או E)} הירח נראה לעומת צדק.
+            אם שם הירח אינו מופיע שם, יש לדייק בלחיצת העכבר על הירח, מומלץ מאוד להשתמש
+            בהגדלה הכי גדולה שעבורה הירח אינו חורג מגבולות המסך.
+            
+            כאשר אנחנו מרוצים מהמדידה, אנו צריכים ללחוץ על
+            Record כדי שהמידע יקלט לתוכנה.
+            ניתן להוסיף או לערוך נתונים על ידי \textenglish{File $\rightarrow$ Data $\rightarrow$ Review}.
+            
+            בסוף מדידה יש ללחוץ על כפתור \textenglish{Next}. 
+            יש לבצע בין 30-20 מדידות לכל ירח על מנת לקבל מספיק דגימות
+            כדי ליצור פונקציה של מסלול כל ירח סביב צדק.
+        \end{enumerate}
 
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+
+
+    \end{flushright}
+
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{תוצאות הניסוי}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
+        האפשרות לבנות גרף סינוס מובנית בתוכנה, נעשה זאת כך:
+        \begin{enumerate}
+            \item[.1] נבחר איזה ירח אנחנו רוצים ליצור לו גרף, נעשה זאת כך: 
+            \textenglish{File $\rightarrow$ Data $\rightarrow$ Analyze} ואז נבחר ירח.
+            לאחר מכן נבחר \textenglish{Plot $\rightarrow$ Plot Type $\rightarrow$ Show Points}.
+            \item[.2] נקבע זמן מחזור של הפונקציה, נעשה זאת על ידי לחיצה שמאלית על נקודה שבה 
+            הגרף אמור לחצות את ציר הזמן, בחר כעת 
+            \textenglish{Plot $\rightarrow$ Fit Sine Curve $\rightarrow$ Set Initial Parameters},
+            ונזין את הזמן שמצאנו בתור \textenglish{T-Zero}.
+            \item[.3]
+            \item[.4] לאחר הזנת כל נתוני פונקצית הסינוס, נלחץ על \textenglish{OK} ויופיע גרך סינוס.
+            במידה שהגרף אינו עובר דרך כל הנקודות, עלינו לחזור על השלבים הקודמים. אם רק כמה נקודות
+            חורגות מעקומת הסינוס, הדבר נובע כנראה מאי-דיוק במדידה.
+            ניתן להשתמש בשלושת פסי הגלילה כדי לשפר את ההתאמה של עקומת הסינוס לנקודות.
 
-        \end{flushright}
-    \end{spacing}
+            יש לשאוף לערך \textenglish{RMS Residual} מינימלי.
+        \end{enumerate}
+    \end{flushright}
 
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{עיבוד וניתוח תוצאות}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
 
-        \end{flushright}
-    \end{spacing}
+    \end{flushright}
 
-    % --- End of Page --- %
-    \pagebreak 
-    % --- Start of Page --- %
+    \pagebreak % ----- Page Break ----- %
 
     \section{\underline{סיכום מסקנות}}
-    \begin{spacing}{1.15}
-        \begin{flushright}
+    \begin{flushright}
 
-        \end{flushright}
-    \end{spacing}
-
+    \end{flushright}
 
 \end{document}
